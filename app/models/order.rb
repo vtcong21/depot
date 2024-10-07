@@ -1,7 +1,7 @@
 require "active_model/serializers/xml"
 require "pago"
 class Order < ApplicationRecord
-  include ActiveModel::Serializers::XML
+  include ActiveModel::Serializers::Xml
   has_many :line_items, dependent: :destroy
   enum pay_type: {
   "Check" => 0,
