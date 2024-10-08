@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:card_id] = nil
-        ChargeOrderJob.perform_later(@order.pay_type_params.to_h)
+        ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
         format.html { redirect_to store_index_url, notice: "Thank you for order." }
         format.json { render :show, status: :created, location: @order }
       else
