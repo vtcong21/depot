@@ -59,3 +59,5 @@ group :test do
 end
 
 gem "activemodel-serializers-xml", "~> 1.0"
+
+gem "devise", "~> 4.9"

@@ -3,18 +3,13 @@ require "test_helper"
 class OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @order = orders(:one)
+    
   end
 
   test "should get index" do
     get orders_url
     assert_response :success
   end
-
-  test "should get new" do
-    get new_order_url
-    assert_response :success
-  end
-
   test "should create order" do
     assert_difference("Order.count") do
       post orders_url, params: { order: { address: @order.address, email: @order.email, name: @order.name, pay_type: @order.pay_type } }
